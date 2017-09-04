@@ -7,7 +7,7 @@ public class GeradorPalavra {
 	String[] palavras;
 	public GeradorPalavra(){
 	try{
-		BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Joao Pedro Santana\\workspace\\miniPaint\\src\\miniPaint\\arquivo.txt"));
+		BufferedReader br = new BufferedReader(new FileReader("src\\Gartic\\arquivo.txt"));
 	String texto = br.readLine();
 	palavras = texto.split(",");
 	br.close();
