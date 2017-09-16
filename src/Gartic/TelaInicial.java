@@ -18,6 +18,7 @@ public class TelaInicial extends JInternalFrame implements ActionListener {
 	private JButton inicia;
 	private JLabel foto;
 	public TelaInicial(JFrame frame) {
+		
 		this.frame = frame;
 		setBounds(0,0,1000, 700);
 		frame.setLayout(null);
@@ -28,13 +29,10 @@ public class TelaInicial extends JInternalFrame implements ActionListener {
 		inicia.addActionListener(this);
 		frame.add(inicia);
 		
-		
-		ImageIcon image = new ImageIcon(this.getClass().getResource("gartic.png"));
 		foto = new JLabel();
 		foto.setIcon(new ImageIcon("src\\Gartic\\gartic.png"));
 		foto.setBounds(-51, 0, 1035, 700);
 		frame.add(foto);
-
 		frame.repaint();
 	}
 	@Override

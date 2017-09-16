@@ -19,18 +19,19 @@ public class TelaJogo extends JInternalFrame implements ActionListener {
 	private JButton btnDesconectar;
 	private Reprodutor rep;
 	private GeradorPalavra palavras;
+	private ImagemGartic imagem = new ImagemGartic();
 	public TelaJogo(JFrame frame) {
 		
-		setBounds(100, 100, 450, 300);
 		frame.setLayout(new BorderLayout(0, 0));
 		palavras = new GeradorPalavra();
 		
 		//Panel De Edição
-		rep = new Reprodutor();
+		rep = new Reprodutor(imagem);
 		frame.add(rep, BorderLayout.CENTER);
 		Clique clique = new Clique();
 		rep.addMouseListener(clique);
-		new Percurso(rep,clique).start();
+		Thread threadPercurso = new Thread(new Percurso(rep,imagem,clique));
+		threadPercurso.start();
 		
 		JToolBar toolBar = new JToolBar();
 		frame.add(toolBar, BorderLayout.NORTH);
@@ -82,7 +83,8 @@ public class TelaJogo extends JInternalFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		JButton botao = (JButton) e.getSource();
 			if(botao == btnLimpa)
-				rep.removeFig();
+				imagem.limpaArray();
+				rep.repaint();
 	}
 
 }

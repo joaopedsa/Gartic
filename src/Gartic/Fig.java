@@ -1,13 +1,20 @@
 package Gartic;
 
 import java.awt.Graphics;
-public class Fig implements Reproduzivel{
-private int x1,y1;
-public Fig(int x1,int y1){
-this.x1 = x1;
-this.y1 = y1;
+
+public class Fig implements Desenho {
+private int x,y;
+public Fig(int x,int y){
+	this.x = x;
+	this.y = y;
 }
-	public void reproduzir(Graphics g){
-		g.fillRect(x1, y1, 2, 2);
-	}
+public int getX(){
+	return x;
+}
+public int getY(){
+	return y;
+}
+public void reproduzir(Graphics g) {
+	g.fillRect(x, y, 2, 2);
+}
 }

@@ -1,29 +1,23 @@
 package Gartic;
 
+
 import java.awt.*;
-import java.util.ArrayList;
 
 import javax.swing.*;
 
 class Reprodutor extends JPanel {
-  
-  private ArrayList<Reproduzivel> figs = new ArrayList<>();
-
-  //adicionar uma figura para reproducao
-  void addFig(Reproduzivel fig) {
-    this.figs.add(fig);
-  }
-  void removeFig(){
-	  this.figs.clear();
-  }
+	ImagemGartic imagem = new ImagemGartic();
+	public Reprodutor(ImagemGartic imagem){
+		this.imagem = imagem;
+	}
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
-      for(int i = 0; i <figs.size(); i++) {
-    	  figs.get(i).reproduzir(g);
+      for(int i = 0; i <imagem.figuras.length; i++) {
+    	  for(int j = 0 ; j < imagem.figuras[0].length;j++)
+    		  if(imagem.figuras[i][j]!=null)
+    			  imagem.figuras[i][j].reproduzir(g);
       }
+  }
+}
 
-  }//()
-    
-
-}//
 
